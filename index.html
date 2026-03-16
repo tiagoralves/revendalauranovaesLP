@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Revenda Laura Novaes | Lingerie, Fitwear & Beachwear</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #faf6f1;
+      --blush: #e8c9b8;
+      --rose:  #c4826a;
+      --deep:  #3a1f1a;
+      --muted: #9a7a6f;
+      --white: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--deep);
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4vw;
+      background: rgba(250,246,241,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--blush);
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 600; letter-spacing: 0.08em;
+      color: var(--deep); text-decoration: none;
+    }
+    .logo span { color: var(--rose); font-style: italic; }
+    nav a {
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--deep);
+      text-decoration: none; margin-left: 2rem;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--rose); }
+    .header-cta {
+      background: var(--deep); color: var(--white) !important;
+      padding: .45rem 1.2rem; border-radius: 2px;
+      margin-left: 2rem !important;
+    }
+    .header-cta:hover { background: var(--rose) !important; color: var(--white) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+      padding: 8rem 4vw 4rem;
+      gap: 4rem;
+    }
+    .hero-text { max-width: 520px; }
+    .hero-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--rose); font-weight: 500;
+      display: flex; align-items: center; gap: .6rem; margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 36px; height: 1px; background: var(--rose);
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 300; line-height: 1.05;
+      color: var(--deep); margin-bottom: 1.5rem;
+    }
+    h1 em { font-style: italic; color: var(--rose); }
+    .hero-desc {
+      font-size: 1rem; line-height: 1.8; color: var(--muted);
+      margin-bottom: 2.5rem; max-width: 400px;
+    }
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--deep); color: var(--white);
+      padding: .85rem 2rem; font-size: 0.82rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px;
+      transition: background .25s, transform .2s;
+    }
+    .btn-primary:hover { background: var(--rose); transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      border: 1px solid var(--deep); color: var(--deep);
+      padding: .85rem 2rem; font-size: 0.82rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px;
+      transition: background .25s, color .25s, transform .2s;
+    }
+    .btn-secondary:hover { background: var(--deep); color: var(--white); transform: translateY(-2px); }
+
+    .hero-visual {
+      position: relative; display: flex;
+      justify-content: center; align-items: center;
+    }
+    .hero-card {
+      width: 100%; max-width: 460px;
+      background: var(--white);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(58,31,26,.12);
+      position: relative;
+    }
+    .hero-card-img {
+      width: 100%; aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #e8c9b8 0%, #f2ddd3 40%, #c4826a 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem; color: rgba(255,255,255,0.4);
+      font-style: italic;
+    }
+    .hero-card-badge {
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      background: var(--rose); color: white;
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: .3rem .7rem; border-radius: 2px;
+    }
+    .hero-card-info {
+      padding: 1.5rem;
+    }
+    .hero-card-info p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; color: var(--deep);
+    }
+    .hero-card-info small {
+      font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em;
+    }
+    .hero-float {
+      position: absolute; bottom: -1.5rem; left: -1.5rem;
+      background: var(--blush); border-radius: 4px;
+      padding: 1rem 1.4rem;
+      box-shadow: 0 8px 24px rgba(58,31,26,.1);
+    }
+    .hero-float strong { display: block; font-size: 1.4rem; color: var(--deep); }
+    .hero-float span { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* ── STRIP ── */
+    .strip {
+      background: var(--deep); color: var(--white);
+      display: flex; justify-content: center; gap: 4rem;
+      padding: 1.2rem 4vw; flex-wrap: wrap;
+      font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .strip-item { display: flex; align-items: center; gap: .5rem; }
+    .strip-item svg { width: 16px; height: 16px; fill: var(--rose); }
+
+    /* ── CATEGORIAS ── */
+    .section { padding: 6rem 4vw; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--rose); font-weight: 500; margin-bottom: .8rem;
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300; color: var(--deep);
+    }
+    h2 em { font-style: italic; color: var(--rose); }
+
+    .cat-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .cat-card {
+      border-radius: 4px; overflow: hidden;
+      position: relative; cursor: pointer;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .cat-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(58,31,26,.14); }
+    .cat-card-img {
+      aspect-ratio: 2/3;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+    }
+    .cat-card:nth-child(1) .cat-card-img { background: linear-gradient(160deg,#f2ddd3,#e8c9b8); }
+    .cat-card:nth-child(2) .cat-card-img { background: linear-gradient(160deg,#d4e8e0,#b8d4cc); }
+    .cat-card:nth-child(3) .cat-card-img { background: linear-gradient(160deg,#d8d4e8,#c4bcd4); }
+    .cat-card-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(0deg, rgba(58,31,26,.85) 0%, transparent 100%);
+      padding: 2rem 1.5rem 1.5rem;
+      color: var(--white);
+    }
+    .cat-card-overlay h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 400; margin-bottom: .3rem;
+    }
+    .cat-card-overlay p { font-size: 0.78rem; color: var(--blush); letter-spacing: 0.06em; }
+
+    /* ── SOBRE ── */
+    .sobre {
+      background: var(--deep); color: var(--white);
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 5rem;
+      padding: 6rem 8vw;
+    }
+    .sobre-text .section-eyebrow { color: var(--blush); }
+    .sobre-text h2 { color: var(--white); margin-bottom: 1.5rem; }
+    .sobre-text p {
+      font-size: 1rem; line-height: 1.9; color: rgba(255,255,255,.7);
+      margin-bottom: 1rem;
+    }
+    .sobre-text p:last-of-type { margin-bottom: 2rem; }
+    .sobre-visual {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .sobre-tile {
+      aspect-ratio: 1; border-radius: 4px;
+      background: rgba(255,255,255,.06);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .sobre-tile strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem; font-weight: 300; color: var(--blush);
+      display: block; margin-bottom: .3rem;
+    }
+    .sobre-tile span { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+
+    /* ── CONTATO ── */
+    .contato { padding: 6rem 4vw; }
+    .contato .section-header { margin-bottom: 3rem; }
+    .contato-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+      max-width: 1000px; margin: 0 auto;
+      align-items: start;
+    }
+    .contact-channels { display: flex; flex-direction: column; gap: 1rem; }
+    .channel-card {
+      display: flex; align-items: center; gap: 1.2rem;
+      padding: 1.4rem 1.6rem;
+      background: var(--white); border-radius: 4px;
+      border: 1px solid var(--blush);
+      text-decoration: none; color: var(--deep);
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    .channel-card:hover {
+      border-color: var(--rose);
+      box-shadow: 0 8px 24px rgba(196,130,106,.15);
+      transform: translateX(4px);
+    }
+    .channel-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .channel-icon.wpp { background: #e8f5e9; }
+    .channel-icon.ig  { background: #fce4ec; }
+    .channel-icon.tel { background: #e3f2fd; }
+    .channel-icon svg { width: 20px; height: 20px; }
+    .channel-info strong { display: block; font-size: 0.85rem; font-weight: 500; }
+    .channel-info span { font-size: 0.78rem; color: var(--muted); }
+
+    /* form */
+    .form-card {
+      background: var(--white); border-radius: 4px;
+      padding: 2.5rem; border: 1px solid var(--blush);
+    }
+    .form-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 400; margin-bottom: 1.5rem;
+    }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block; font-size: 0.75rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: .4rem;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%; padding: .75rem 1rem;
+      border: 1px solid var(--blush); border-radius: 2px;
+      background: var(--cream); color: var(--deep);
+      font-family: 'Jost', sans-serif; font-size: 0.9rem;
+      transition: border-color .2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--rose); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .btn-submit {
+      width: 100%; padding: 1rem;
+      background: var(--deep); color: var(--white);
+      border: none; border-radius: 2px; cursor: pointer;
+      font-family: 'Jost', sans-serif; font-size: 0.82rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      transition: background .25s;
+    }
+    .btn-submit:hover { background: var(--rose); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep); color: rgba(255,255,255,.5);
+      text-align: center; padding: 2rem 4vw;
+      font-size: 0.78rem; letter-spacing: 0.06em;
+    }
+    footer a { color: var(--blush); text-decoration: none; }
+    footer strong { color: var(--white); }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wpp-float {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25d366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      text-decoration: none;
+      animation: pulse 2s infinite;
+      transition: transform .2s;
+    }
+    .wpp-float:hover { transform: scale(1.1); }
+    .wpp-float svg { width: 28px; height: 28px; fill: white; }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,.4); }
+      50% { box-shadow: 0 4px 32px rgba(37,211,102,.7); }
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      animation: fadeUp .7s forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in:nth-child(1) { animation-delay: .1s; }
+    .fade-in:nth-child(2) { animation-delay: .25s; }
+    .fade-in:nth-child(3) { animation-delay: .4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 7rem; gap: 2rem; }
+      .hero-visual { display: none; }
+      .cat-grid { grid-template-columns: 1fr; }
+      .sobre { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 6vw; }
+      .contato-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .strip { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">Laura <span>Novaes</span></a>
+  <nav>
+    <a href="#categorias">Coleções</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+    <a href="#contato" class="header-cta">Pedir agora</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow fade-in">Revendedora Oficial</p>
+    <h1 class="fade-in">Moda que <em>valoriza</em> o seu corpo</h1>
+    <p class="hero-desc fade-in">
+      Lingerie, Fitwear e Beachwear da marca <strong>Laura Novaes</strong> — elegância, conforto e sofisticação em peças que exaltam a mulher brasileira. Modelagens autorais, tecidos premium, entrega para todo o Brasil.
+    </p>
+    <div class="btn-group fade-in">
+      <a href="https://wa.me/5500000000000" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.142 1.533 5.878L0 24l6.302-1.503A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.5-5.19-1.376l-.372-.217-3.742.892.944-3.617-.24-.384A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Peça pelo WhatsApp
+      </a>
+      <a href="#categorias" class="btn-secondary">Ver coleções</a>
+    </div>
+  </div>
+  <div class="hero-visual fade-in">
+    <div class="hero-card">
+      <div class="hero-card-img">LN</div>
+      <span class="hero-card-badge">Revendedora oficial</span>
+      <div class="hero-card-info">
+        <p>LN Lingerie, Fitwear & Beachwear</p>
+        <small>Desde 2007 · Rio de Janeiro</small>
+      </div>
+    </div>
+    <div class="hero-float">
+      <strong>+15 anos</strong>
+      <span>de mercado</span>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+    Parcelamento em até 5x sem juros
+  </div>
+  <div class="strip-item">
+    <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+    Entrega para todo o Brasil
+  </div>
+  <div class="strip-item">
+    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+    Peças com procedência e qualidade
+  </div>
+  <div class="strip-item">
+    <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+    Pix, cartão, boleto
+  </div>
+</div>
+
+<!-- CATEGORIAS -->
+<section class="section" id="categorias">
+  <div class="section-header">
+    <p class="section-eyebrow">Nossas Coleções</p>
+    <h2>Para cada <em>momento</em> seu</h2>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card fade-in">
+      <div class="cat-card-img">🌸</div>
+      <div class="cat-card-overlay">
+        <h3>Lingerie</h3>
+        <p>Bodies · Conjuntos · Sutiãs · Calcinhas · Camisolas</p>
+      </div>
+    </div>
+    <div class="cat-card fade-in">
+      <div class="cat-card-img">💪</div>
+      <div class="cat-card-overlay">
+        <h3>Fitwear</h3>
+        <p>Tops · Calças · Shorts · Macaquinhos · Coleção All Day</p>
+      </div>
+    </div>
+    <div class="cat-card fade-in">
+      <div class="cat-card-img">🌊</div>
+      <div class="cat-card-overlay">
+        <h3>Beachwear</h3>
+        <p>Biquínis · Bodies · Coleções de praia</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="sobre-text">
+    <p class="section-eyebrow">Sobre a marca</p>
+    <h2>Elegância que <em>nasce</em> no Rio</h2>
+    <p>Fundada em 2007 no Rio de Janeiro, a LN nasceu no mercado de moda íntima com a missão de unir elegância, conforto e sofisticação em peças que valorizam o corpo da mulher brasileira.</p>
+    <p>Com modelagens autorais e tecidos de alta qualidade, a marca conquistou espaço no mercado nacional e internacional, com atuação no mercado Chileno e Europeu.</p>
+    <a href="#contato" class="btn-primary">Quero conhecer os produtos</a>
+  </div>
+  <div class="sobre-visual">
+    <div class="sobre-tile fade-in">
+      <strong>2007</strong>
+      <span>Fundação da marca</span>
+    </div>
+    <div class="sobre-tile fade-in">
+      <strong>+15</strong>
+      <span>Anos de mercado</span>
+    </div>
+    <div class="sobre-tile fade-in">
+      <strong>3</strong>
+      <span>Linhas de produto</span>
+    </div>
+    <div class="sobre-tile fade-in">
+      <strong>🌍</strong>
+      <span>Presença internacional</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="section contato" id="contato">
+  <div class="section-header">
+    <p class="section-eyebrow">Fale Conosco</p>
+    <h2>Vamos conversar <em>agora?</em></h2>
+  </div>
+  <div class="contato-grid">
+    <div class="contact-channels">
+      <a href="https://wa.me/5500000000000" class="channel-card">
+        <div class="channel-icon wpp">
+          <svg viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.142 1.533 5.878L0 24l6.302-1.503A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.5-5.19-1.376l-.372-.217-3.742.892.944-3.617-.24-.384A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        </div>
+        <div class="channel-info">
+          <strong>WhatsApp</strong>
+          <span>(00) 00000-0000 — Resposta rápida!</span>
+        </div>
+      </a>
+      <a href="https://instagram.com/seuinstagram" class="channel-card">
+        <div class="channel-icon ig">
+          <svg viewBox="0 0 24 24" fill="#e1306c"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </div>
+        <div class="channel-info">
+          <strong>Instagram</strong>
+          <span>@seuinstagram</span>
+        </div>
+      </a>
+      <a href="tel:+5500000000000" class="channel-card">
+        <div class="channel-icon tel">
+          <svg viewBox="0 0 24 24" fill="#1976d2"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <div class="channel-info">
+          <strong>Telefone</strong>
+          <span>(00) 0000-0000</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="form-card">
+      <h3>Envie uma mensagem</h3>
+      <div class="form-group">
+        <label>Seu nome</label>
+        <input type="text" placeholder="Como posso te chamar?"/>
+      </div>
+      <div class="form-group">
+        <label>WhatsApp / Telefone</label>
+        <input type="tel" placeholder="(00) 00000-0000"/>
+      </div>
+      <div class="form-group">
+        <label>Interesse</label>
+        <select>
+          <option value="">Selecione uma categoria</option>
+          <option>Lingerie</option>
+          <option>Fitwear</option>
+          <option>Beachwear</option>
+          <option>Todos os produtos</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Mensagem</label>
+        <textarea placeholder="Pode perguntar sobre tamanhos, preços, formas de pagamento…"></textarea>
+      </div>
+      <button class="btn-submit" onclick="enviarFormulario()">Enviar mensagem</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>Revenda Laura Novaes</strong> · Revendedora Oficial LN Lingerie, Fitwear & Beachwear ·
+  <a href="https://www.lauranovaes.com.br" target="_blank">lauranovaes.com.br</a></p>
+</footer>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://wa.me/5500000000000" class="wpp-float" title="Fale pelo WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.142 1.533 5.878L0 24l6.302-1.503A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.5-5.19-1.376l-.372-.217-3.742.892.944-3.617-.24-.384A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        e.target.style.transition = 'opacity .7s ease, transform .7s ease';
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    observer.observe(el);
+  });
+
+  function enviarFormulario() {
+    const nome = document.querySelector('input[type="text"]').value;
+    const tel  = document.querySelector('input[type="tel"]').value;
+    const interesse = document.querySelector('select').value;
+    const msg  = document.querySelector('textarea').value;
+    if (!nome || !tel) { alert('Por favor, preencha nome e telefone.'); return; }
+    const texto = `Olá! Me chamo *${nome}*.\nTelefone: ${tel}\nInteresse: ${interesse || 'Geral'}\n\n${msg}`;
+    window.open('https://wa.me/5500000000000?text=' + encodeURIComponent(texto), '_blank');
+  }
+</script>
+</body>
+</html>
