@@ -6,6 +6,8 @@
       --muted: #9a7a6f;
       --white: #ffffff;
       --sand: #f2e6dd;
+      --PaleTaupe: #e3d2c8;
+      --Seashell: #fdf0eb;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -174,16 +176,12 @@
     .cat-card:hover .cat-card-img {
       transform: scale(1.06);
     }
-    /* .cat-card-img:hover {
-      border-color: var(--rose);
-      box-shadow: 0 8px 24px rgba(196,130,106,.12);
-      transform: translateY(-3px);
-    } */
+
     .cat-card-img {
       width: 100%;
       aspect-ratio: 2/3;
-      object-fit: cover;        /* recorta a imagem para preencher o espaço */
-      object-position: center;  /* centraliza o recorte */
+      object-fit: cover;
+      object-position: center;
       display: block;
     }
     .cat-card:nth-child(1) .cat-card-img { background: linear-gradient(160deg,#f2ddd3,#e8c9b8); }
@@ -315,7 +313,7 @@
 
     /* ── PRIVATE LABEL ── */
 .lojista {
-  background: var(--sand); /* era var(--blush) — agora um tom médio entre cream e blush */
+  background: var(--blush); /* era var(--blush) — agora um tom médio entre cream e blush */
   padding: 12rem 4vw;
   border-top: 1px solid var(--blush);
 }
@@ -343,8 +341,8 @@
   display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
 }
 .pl-card {
-  background: var(--sand);        /* era var(--blush) */
-  border: 1px solid var(--blush);  /* era border: 1px solid var(--deep) */
+  background: var(--PaleTaupe);
+  border: 1px solid var(--deep);
   border-radius: 4px;
   padding: 1.6rem 1.4rem;
   display: flex; flex-direction: column; gap: .4rem;
